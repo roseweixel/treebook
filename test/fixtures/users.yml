@@ -1,7 +1,11 @@
 rose:
- first_name: "Rose"
- last_name: "Weixel"
- email: "rose@example.com"
- profile_name: "roseweixel"
- encrypted_password: "password"
- #password_confirmation: "password"
+  first_name: "Rose"
+  last_name: "Weixel"
+  email: "rose@example.com"
+  profile_name: "roseweixel"
+
+boatcat:
+  first_name: "Boat"
+  last_name: "Cat"
+  email: "cat@ishouldbuyaboat.com"
+  profile_name: "ishouldbuyaboat"
