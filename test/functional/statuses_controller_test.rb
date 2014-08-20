@@ -38,33 +38,58 @@ class StatusesControllerTest < ActionController::TestCase
     assert_redirected_to status_path(assigns(:status))
   end
 
+  test "should create status for the current user when logged in" do
+    sign_in users(:rose)
+
+    assert_difference('Status.count') do
+      post :create, status: { content: @status.content, user_id: users(:boatcat).id }
+    end
+    
+    assert_redirected_to status_path(assigns(:status))
+    assert_equal assigns(:status).user_id, users(:rose).id
+  end
+
   test "should show status" do
     get :show, id: @status
     assert_response :success
   end
 
-  test "should be redirected when attempting to edit a status while not signed in" do
+  test "should be redirected when attempting to edit a status when not signed in" do
     get :edit, id: @status
     assert_response :redirect
     assert_redirected_to new_user_session_path
   end
 
-  test "should render edit page if signed in" do
+  test "should render edit page when signed in" do
     sign_in users(:rose)
     get :edit, id: @status
     assert_response :success
   end
 
-  test "should not update status while not signed in" do
+  test "should not update status when not signed in" do
     put :update, id: @status, status: { content: @status.content }
     assert_response :redirect
     assert_redirected_to new_user_session_path
   end
 
-  test "should update status if signed in" do
+  test "should update status when signed in" do
     sign_in users(:rose)
     put :update, id: @status, status: { content: @status.content }
     assert_redirected_to status_path(assigns(:status))
+  end
+
+  test "should update status for the current user when signed in" do
+    sign_in users(:rose)
+    put :update, id: @status, status: { content: @status.content, user_id: users(:boatcat).id }
+    assert_redirected_to status_path(assigns(:status))
+    assert_equal assigns(:status).user_id, users(:rose).id
+  end
+
+  test "should not update the status if nothing has changed" do
+    sign_in users(:rose)
+    put :update, id: @status
+    assert_redirected_to status_path(assigns(:status))
+    assert_equal assigns(:status).user_id, users(:rose).id
   end
 
   test "should destroy status" do
