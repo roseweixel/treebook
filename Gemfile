@@ -9,6 +9,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'state_machine'
 gem 'draper'
+gem 'js-routes'
 
 group :development, :test do
 	gem 'sqlite3'
