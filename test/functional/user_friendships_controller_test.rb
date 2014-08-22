@@ -55,13 +55,13 @@ class UserFriendshipsControllerTest < ActionController::TestCase
 				end
 
 				should "not display pending, active, or requested friend's names" do
-					assert_no_match /Pending/, response.body
-					assert_no_match /Active/, response.body
-					assert_no_match /Requested/, response.body
+					assert_no_match /Pending\ Friend/, response.body
+					assert_no_match /Active\ Friend/, response.body
+					assert_no_match /Requested\ Friend/, response.body
 				end
 
 				should "display blocked friend names" do
-					assert_match /Blocked/, response.body
+					assert_match /Blocked\ Friend/, response.body
 				end
 			end
 
@@ -75,13 +75,13 @@ class UserFriendshipsControllerTest < ActionController::TestCase
 				end
 
 				should "not display blocked, active, or requested friend's names" do
-					assert_no_match /Blocked/, response.body
-					assert_no_match /Active/, response.body
-					assert_no_match /Requested/, response.body
+					assert_no_match /Blocked\ Friend/, response.body
+					assert_no_match /Active\ Friend/, response.body
+					assert_no_match /Requested\ Freind/, response.body
 				end
 
 				should "display pending friend names" do
-					assert_match /Pending/, response.body
+					assert_match /Pending\ Friend/, response.body
 				end
 			end
 
@@ -95,13 +95,13 @@ class UserFriendshipsControllerTest < ActionController::TestCase
 				end
 
 				should "not display pending, active, or blocked friend's names" do
-					assert_no_match /Pending/, response.body
-					assert_no_match /Active/, response.body
-					assert_no_match /Blocked/, response.body
+					assert_no_match /Pending\ Friend/, response.body
+					assert_no_match /Active\ Friend/, response.body
+					assert_no_match /Blocked\ Friend/, response.body
 				end
 
 				should "display requested friend names" do
-					assert_match /Requested/, response.body
+					assert_match /Requested\ Friend/, response.body
 				end
 			end
 
@@ -115,13 +115,13 @@ class UserFriendshipsControllerTest < ActionController::TestCase
 				end
 
 				should "not display pending, requested, or blocked friend's names" do
-					assert_no_match /Pending/, response.body
-					assert_no_match /Requested/, response.body
-					assert_no_match /Blocked/, response.body
+					assert_no_match /Pending\ Friend/, response.body
+					assert_no_match /Requested\ Friend/, response.body
+					assert_no_match /Blocked\ Friend/, response.body
 				end
 
 				should "display accepted friend names" do
-					assert_match /Active/, response.body
+					assert_match /Active\ Friend/, response.body
 				end
 			end
 			
