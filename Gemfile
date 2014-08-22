@@ -11,13 +11,18 @@ gem 'state_machine'
 gem 'draper', '1.0.0'
 gem 'js-routes', '0.8.5'
 
-group :development, :test do
-	gem 'sqlite3'
+group :development do
+	gem 'thin'
 end
 
 group :test do
 	gem 'shoulda'
 	gem 'factory_girl_rails'
+end
+
+group :development, :test do
+	gem 'sqlite3'
+	gem 'log_buddy'
 end
 
 group :production do

@@ -1,15 +1,15 @@
 <div class="page-header">
-	<h1>Friends</h1>
+	<h1>My Friends</h1>
 </div>
 
 <div>
-	<strong>Friend list:</strong>
-	
-	<%= link_to 'Blocked', user_friendships_path(list: 'blocked') %>
-	<%= link_to 'Requested', user_friendships_path(list: 'requested') %>
-	<%= link_to 'Pending', user_friendships_path(list: 'pending') %>
-	<%= link_to 'Accepted', user_friendships_path(list: 'accepted') %>
-	
+	<ul class="nav nav-pills" id="friend-list-filter">
+    <li class="<%= 'active' if params[:list] == '' || params[:list].blank? %>"><%= link_to 'All', user_friendships_path %></li>  
+    <li class="<%= 'active' if params[:list] == 'blocked' %>"><%= link_to 'Blocked', user_friendships_path(list: 'blocked') %></li>
+    <li class="<%= 'active' if params[:list] == 'requested' %>"><%= link_to 'Requested', user_friendships_path(list: 'requested') %></li>
+    <li class="<%= 'active' if params[:list] == 'accepted' %>"><%= link_to 'Accepted', user_friendships_path(list: 'accepted') %></li>
+    <li class="<%= 'active' if params[:list] == 'pending' %>"><%= link_to 'Pending', user_friendships_path(list: 'pending') %></li>
+  </ul>
 </div>
 
 
