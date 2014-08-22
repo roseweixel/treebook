@@ -8,7 +8,7 @@ gem 'rails', '3.2.18'
 gem 'devise'
 gem 'simple_form'
 gem 'state_machine'
-gem 'draper', '0.18.0'
+gem 'draper', '1.0.0'
 gem 'js-routes', '0.8.5'
 
 group :development, :test do
