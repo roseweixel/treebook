@@ -10,6 +10,7 @@ gem 'simple_form'
 gem 'state_machine'
 gem 'draper', '1.0.0'
 gem 'js-routes', '0.8.5'
+gem 'paperclip', '3.4.1'
 
 group :development do
 	gem 'thin'
