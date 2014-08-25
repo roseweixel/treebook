@@ -125,6 +125,7 @@ class UserFriendshipsControllerTest < ActionController::TestCase
 				end
 			end
 			
+
 		end
 	end
 
@@ -252,6 +253,11 @@ class UserFriendshipsControllerTest < ActionController::TestCase
 		end
 	end
 
+	def do_put
+ 		put :accept, id: @user_friendship
+ 		@user_friendship.reload
+  end
+
 	context "#accept" do
 		context "when not logged in" do
 			should "redirect to the login page" do
@@ -267,21 +273,28 @@ class UserFriendshipsControllerTest < ActionController::TestCase
 				@user_friendship = create(:pending_user_friendship, user: users(:rose), friend: @friend)
 				create(:pending_user_friendship, friend: users(:rose), user: @friend)
 				sign_in users(:rose)
-				put :accept, id: @user_friendship
-				@user_friendship.reload
 			end
 
 			should "assign a user_friendship" do
+				do_put
 				assert assigns(:user_friendship)
 				assert_equal @user_friendship, assigns(:user_friendship)
 			end
 
 			should "update the state to accepted" do
+				do_put
 				assert_equal 'accepted', @user_friendship.state
 			end
 
 			should "have a flash success message" do
+				do_put
 				assert_equal "You are now friends with #{@user_friendship.friend.first_name}", flash[:success]
+			end
+
+			should "create activity" do
+				assert_difference "Activity.count" do
+					do_put
+				end
 			end
 		end
 	end
