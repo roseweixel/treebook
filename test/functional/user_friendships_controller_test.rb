@@ -39,9 +39,9 @@ class UserFriendshipsControllerTest < ActionController::TestCase
 				end
 			end
 
-			should "display date informtion on an accepted friendship" do
+			should "display accepted state on an accepted friendship" do
 				assert_select "#user_friendship_#{@friendship2.id}" do
-					assert_select "em", "Friendship started #{@friendship2.updated_at}."
+					assert_select "em", "Friendship is accepted."
 				end
 			end
 
