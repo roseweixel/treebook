@@ -30,6 +30,8 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.3)
     bcrypt (3.1.7)
+    bootstrap-will_paginate (0.0.9)
+      will_paginate
     builder (3.0.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -152,11 +154,13 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    will_paginate (3.0.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-will_paginate (= 0.0.9)
   coffee-rails (~> 3.2.1)
   devise
   draper (= 1.0.0)
@@ -175,3 +179,4 @@ DEPENDENCIES
   thin
   twitter-bootstrap-rails (= 2.2.6)
   uglifier (>= 1.0.3)
+  will_paginate (= 3.0.4)

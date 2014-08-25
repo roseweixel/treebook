@@ -12,6 +12,8 @@ gem 'draper', '1.0.0'
 gem 'js-routes', '0.8.5'
 gem 'paperclip', '3.4.1'
 gem 'twitter-bootstrap-rails', '2.2.6'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
 
 group :development do
 	gem 'thin'
